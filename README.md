@@ -1,1 +1,1 @@
-# inside-mind.github.io
+# Healthy TU Project
