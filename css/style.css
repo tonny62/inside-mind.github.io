@@ -641,7 +641,7 @@ h1, h2, h3, h4, h5, h6, .heading-1, .heading-2, .heading-3, .heading-4, .heading
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 15px;
+  padding: 15px 15px 0 15px;
 }
 .product img{
   width: 100%;
@@ -652,7 +652,6 @@ h1, h2, h3, h4, h5, h6, .heading-1, .heading-2, .heading-3, .heading-4, .heading
   position: relative;
   background-color: #fff;
   transition: 0.5s all ease;
-  padding:27px;
   text-align: left;
   font-size: 14px;
   font-weight: 600;
