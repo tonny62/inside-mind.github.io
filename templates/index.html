@@ -1,16 +1,32 @@
 <!--      Slogan      -->
+<link rel="stylesheet" href="css/animate.css">
 <div class="parallax-container">
   <div class="section no-pad-bot">
     <div class="container">
        <br><br>
-       <h1 class="header center white-text text-lighten-2">What to eat ?</h1>
+       <h1 class="header center white-text text-lighten-2 animated zoomIn">กินอะไรดี?</h1>
        <div class="row center">
-         <h5 class="header col s12 light">Enjoy your food with our suggested menu and live healthy</h5>
+         <h5 class="header col s12 light">เพลิดเพลินไปกับหลากหลายเมนูในมหาวิทยาลัยธรรมศาสตร์</h5>
        </div>
        <div class="row center">
-         <a href="#canteens" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+         <a href="#courts" id="download-button" class="btn-large waves-effect z-depth-3 waves-light teal lighten-1 animated bounce">เริ่มเลย!</a>
        </div>
-
+  <!--Animation Script -->
+        <script type="text/javascript">
+        function animationHover(element, animation){
+    element = $(element);
+    element.hover(
+        function() {
+            element.addClass('animated ' + animation);
+        },
+        function(){
+            //wait for animation to finish before removing classes
+            window.setTimeout( function(){
+                element.removeClass('animated ' + animation);
+            }, 3000);
+        });
+}
+        </script>
        <br><br>
      </div>
    </div>
@@ -24,10 +40,10 @@
      <div class="row">
        <div class="col s12 m4">
          <div class="icon-block">
-           <h2 class="center brown-text"><i class="medium material-icons">flash_on</i></h2>
-           <h5 class="center">Speeds up development</h5>
+           <h2 class="center brown-text"><i class="medium material-icons ">track_changes</i></h2>
+           <h5 class="center">สุขภาพดีกันถ้วนหน้า</h5>
 
-           <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+           <p class="light">เราอยากให้คุณมีความสุขกับการกินเพราะเรื่องกินคือ "เรื่องใหญ่" พร้อมทั้งข้อมูลทางโภชนาการที่น่าสนใจต่างๆ</p>
          </div>
        </div>
        <div class="col s12 m4">
@@ -39,9 +55,8 @@
          </div>
        </div>
        <div class="col s12 m4">
-         <div class="icon-block">
-           <h2 class="center brown-text"><i class="medium material-icons">settings</i></h2>
-           <h5 class="center">Easy to work with</h5>
+           <h2 class="center brown-text"><i class="medium material-icons">chat_bubble_outline</i></h2>
+           <h5 class="center">.h</h5>
 
            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
          </div>
@@ -54,12 +69,14 @@
  <div class="parallax-container valign-wrapper">
    <div class="section no-pad-bot valign">
      <div class="container">
-       <div class="row">
-         <h1 class="header col s12 light">We are going to make people of Thammasat be healthy</h1>
+       <div id="element-to-animate" class="row">
+         <h1 class="header col s12 light animated zoomIn">"สุขภาพที่ดีเริ่มจากการกิน"</h1>
         </div>
       </div>
     </div>
+
     <div parallax><img ng-src="images/background2.jpg"></div>
+
  </div>
 
 
@@ -68,13 +85,15 @@
 
   <div class="row">
     <div class="col s12 center">
-      <h4>Our Developers</h4>
-      <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+      <h4>ทีมพัฒนาโปรเจค</h4>
+      <p class="left-align light">เราได้้สรรค์สร้างประสบการณ์ใหม่ๆให้กับชาวธรรมศาสตร์เพื่อให้ได้มีส่วนร่วมในการดูแลสุขภาพของเพื่อนๆทีมพัฒนาหวังเป็นอย่างยิ่งว่าเว็บไซต์นี้จะเป็นส่วนหนึงในโปรเจ็คที่จะเป็นประโยชน์อย่างมากต่อผู้ใช่</p>
     </div>
   </div>
 
 </div>
 </div>
+
+
 
   <!--  Developers  -->
   <div class="parallax-container">
