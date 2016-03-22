@@ -9,22 +9,51 @@ var app = angular.module('siitApp', ['ngRoute','ui.router','ui.materialize'])
                   }
                 ).
                 when(
-                  "/courts",
+                  "/canteens",
                   {
-                    templateUrl : "templates/courts.html",
-                    controller  : "courtsCtrl",
+                    templateUrl : "templates/canteens.html",
+                    controller  : "canteensCtrl",
                   }
                 ).
                 when(
-                  "/courts/:court",
+                  "/canteens/:courts",
                   {
-                    templateUrl : "templates/menus.html",
-                    controller  : "menusCtrl"
+                    templateUrl : "templates/courts.html",
+                    controller  : "courtsCtrl"
+                  }
+                ).
+                when(
+                  "/canteens/:courts/:court",
+                  {
+                    templateUrl : "templates/court.html",
+                    controller  : "courtCtrl"
+                  }
+                ).
+                when(
+                  "/canteens/:courts/:court/:menu",
+                  {
+                    templateUrl : "templates/menu.html",
+                    controller  : "menuCtrl"
                   }
                 );
 });
 
-
+app.factory("Canteens", function() {
+  return {
+    "siit" : [
+      {
+        "health" : [1,2],
+        "normal" : []
+      }
+    ],
+    "sc" : [
+      {
+        "health" : [],
+        "normal" : []
+      }
+    ]
+  };
+});
 app.controller('BodyController', ["$scope", function ($scope) {
     $scope.select = {
         value1: "Option1",
@@ -96,10 +125,22 @@ app.controller("indexCtrl",function($scope){
 
 });
 
-app.controller("courtsCtrl",function($scope){
+app.controller("canteensCtrl",function($scope){
 
 });
 
-app.controller("menusCtrl",function($scope,$routeParams){
 
+app.controller("courtsCtrl",function($scope,$routeParams, $route){
+  $scope.link = "templates/canteens/"+$routeParams.courts+".html";
+});
+
+app.controller("courtCtrl",function($scope,$routeParams, $route){
+  $scope.link = "templates/courts/"+$routeParams.courts+"/"+$routeParams.court+".html";
+});
+
+app.controller("menuCtrl",function($scope,$routeParams, $route, Canteens){
+
+  var ranNum = Math.floor(Math.random() * Canteens['siit'][0]['health'].length );
+
+  $scope.link = "canteens/siit/1/health/1.html";
 });
