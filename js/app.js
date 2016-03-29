@@ -16,43 +16,26 @@ var app = angular.module('siitApp', ['ngRoute','ui.router','ui.materialize'])
                   }
                 ).
                 when(
-                  "/canteens/:courts",
+                  "/canteens/:canteen",
                   {
-                    templateUrl : "templates/courts.html",
-                    controller  : "courtsCtrl"
+                    templateUrl : "templates/canteen.html",
+                    controller  : "canteenCtrl"
                   }
                 ).
                 when(
-                  "/canteens/:courts/:court",
+                  "/canteens/:canteen/:court",
                   {
                     templateUrl : "templates/court.html",
                     controller  : "courtCtrl"
                   }
                 ).
                 when(
-                  "/canteens/:courts/:court/:menu",
+                  "/canteens/:canteen/:court/:menu",
                   {
                     templateUrl : "templates/menu.html",
                     controller  : "menuCtrl"
                   }
                 );
-});
-
-app.factory("Canteens", function() {
-  return {
-    "siit" : [
-      {
-        "health" : [1,2],
-        "normal" : []
-      }
-    ],
-    "sc" : [
-      {
-        "health" : [],
-        "normal" : []
-      }
-    ]
-  };
 });
 app.controller('BodyController', ["$scope", function ($scope) {
     $scope.select = {
@@ -121,6 +104,30 @@ app.controller('BodyController', ["$scope", function ($scope) {
     };
 }])
 
+app.factory("Canteens", function() {
+  return {
+    "siit" : [
+      {
+        "name"   :  "ร้าน 1",
+        "health" :  [0,1],
+        "normal" :  []
+      },
+      {
+        "name"   :  "ร้าน 2",
+        "health" : [0],
+        "normal" : []
+      }
+    ],
+    "jc" : [
+      {
+        "name"   :  "ร้าน 3",
+        "health" : [],
+        "normal" : []
+      }
+    ]
+  };
+});
+
 app.controller("indexCtrl",function($scope){
 
 });
@@ -130,12 +137,17 @@ app.controller("canteensCtrl",function($scope){
 });
 
 
-app.controller("courtsCtrl",function($scope,$routeParams, $route){
-  $scope.link = "templates/canteens/"+$routeParams.courts+".html";
+app.controller("canteenCtrl",function($scope,$routeParams, $route, Canteens){
+  $scope.courts = Canteens[$routeParams.canteen];
+  $scope.link   = "templates/canteens/"+$routeParams.canteen+".html";
 });
 
-app.controller("courtCtrl",function($scope,$routeParams, $route){
-  $scope.link = "templates/courts/"+$routeParams.courts+"/"+$routeParams.court+".html";
+app.controller("courtCtrl",function($scope,$routeParams, $route, Canteens){
+  var canteen = $routeParams.canteen;
+  var court   = $routeParams.court;
+  $scope.canteen  = canteen;
+  $scope.court    = court;
+  $scope.detail = Canteens[canteen][court];
 });
 
 app.controller("menuCtrl",function($scope,$routeParams, $route, Canteens){

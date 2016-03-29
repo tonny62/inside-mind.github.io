@@ -1,3 +1,20 @@
 <div class="container" ng-controller="courtCtrl" style="margin-top:18px;">
-  <ng-include src="link"> </ng-include>
+  <div class="row valign-wrapper" style="margin-top:18px;">
+    <div class="col s3">
+      <img src="images/canteens/{{canteen}}/{{court}}.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+    </div>
+    <div class="col s9">
+      <span class="black-text">
+        {{detail['name']}}
+      </span>
+    </div>
+  </div>
+
+  <div class="row menus">
+    <div class="col s4" ng-repeat="menu in detail['health']">
+      <a href="#/canteens/{{canteen}}/{{court}}/health/{{$index}}">
+        <img class="responsive-img" ng-src="images/canteens/{{canteen}}/{{court}}/health/{{$index}}.jpg">
+      </a>
+    </div>
+  </div>
 </div>
