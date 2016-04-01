@@ -9,6 +9,13 @@ var app = angular.module('siitApp', ['ngRoute','ui.router','ui.materialize'])
                   }
                 ).
                 when(
+                    "/:canteen/all",
+                    {
+                      templateUrl : "templates/all.html",
+                      controller  : "allCtrl",
+                    }
+                ).
+                when(
                   "/canteens",
                   {
                     templateUrl : "templates/canteens.html",
@@ -107,22 +114,23 @@ app.controller('BodyController', ["$scope", function ($scope) {
 app.factory("Canteens", function() {
   return {
     "siit" : [
-      {
-        "name"   :  "ร้าน 1",
-        "health" :  [0,1],
-        "normal" :  []
-      },
-      {
-        "name"   :  "ร้าน 2",
-        "health" : [0],
-        "normal" : []
-      }
+        {
+            "name"   :  "ร้าน 1",
+            "menus" :  [0,1]
+        },
+        {
+            "name"   :  "ร้าน 2",
+            "menus" : [0]
+        }, 
+        {
+            "name"   :  "ร้าน 3",
+            "menus" : [0]
+        }
     ],
     "jc" : [
       {
         "name"   :  "ร้าน 3",
-        "health" : [],
-        "normal" : []
+        "menus" : []
       }
     ]
   };
@@ -131,7 +139,16 @@ app.factory("Canteens", function() {
 app.controller("indexCtrl",function($scope){
 
 });
-
+app.controller("allCtrl",function ($scope,$routeParams, $route, Canteens) {
+    var canteen = new Array();
+    for (var court=0; court< Canteens[$routeParams.canteen].length; court++){
+        for(var menu=0; menu< Canteens[$routeParams.canteen][court]['menus'].length;menu++){
+            canteen.push('canteens/'+$routeParams.canteen+'/'+court+'/'+menu);
+        }
+    }
+    $scope.canteen  =   canteen;
+    $scope.route    =   $routeParams.canteen;
+})
 app.controller("canteensCtrl",function($scope){
 
 });
@@ -143,16 +160,19 @@ app.controller("canteenCtrl",function($scope,$routeParams, $route, Canteens){
 });
 
 app.controller("courtCtrl",function($scope,$routeParams, $route, Canteens){
-  var canteen = $routeParams.canteen;
-  var court   = $routeParams.court;
-  $scope.canteen  = canteen;
-  $scope.court    = court;
-  $scope.detail = Canteens[canteen][court];
+    var canteen = $routeParams.canteen;
+    var court   = $routeParams.court;
+    $scope.canteen  = canteen;
+    $scope.court    = court;
+    $scope.detail = Canteens[canteen][court];
 });
 
 app.controller("menuCtrl",function($scope,$routeParams, $route, Canteens){
-
-  var ranNum = Math.floor(Math.random() * Canteens['siit'][0]['health'].length );
-
-  $scope.link = "canteens/siit/1/health/1.html";
+    //var ranNum = Math.floor(Math.random() * Canteens['siit'][0]['health'].length );
+    var canteen =   $routeParams.canteen;
+    var court   =   $routeParams.court;
+    var menu    =   $routeParams.menu;
+    var route   =   new Array(canteen, court, menu);
+    $scope.route=   route.join('/');
+    $scope.link = "canteens/"+route.join("/")+".html";
 });
