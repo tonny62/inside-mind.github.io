@@ -881,7 +881,7 @@
 
     /*     example usage:
     <!-- normal materialboxed -->
-    <img materialboxed class="materialboxed responsive-img" width="650" src="images/sample-1.jpg">
+    <img materialboxed class="materialboxed responsive-img" width="650" src="images/sample-0.jpg">
 
     <!-- caption materialboxed -->
     <img materialboxed class="materialboxed" data-caption="A picture of some deer and tons of trees" width="250" src="iamges/nature_portrait_by_pw_fotografie-d63tx0n.jpg">

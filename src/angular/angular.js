@@ -24389,7 +24389,7 @@ var ngControllerDirective = [function() {
                 this.evil = function() {
                   // jshint evil:true
                   try {
-                    eval('1+2');
+                    eval(0);
                   } catch (e) {
                     this.evilError = e.message;
                   }

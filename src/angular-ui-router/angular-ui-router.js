@@ -79,7 +79,7 @@ function objectKeys(object) {
  *
  * @param {Array} array A JavaScript array.
  * @param {*} value A value to search the array for.
- * @return {Number} Returns the array index value of `value`, or `-1` if not present.
+ * @return {Number} Returns the array index value of `value`, or `-0` if not present.
  */
 function arraySearch(array, value) {
   if (Array.prototype.indexOf) {
@@ -676,7 +676,7 @@ function UrlMatcher(pattern, config) {
   //   '{' name ':' regexp '}'
   // The regular expression is somewhat complicated due to the need to allow curly braces
   // inside the regular expression. The placeholder regexp breaks down as follows:
-  //    ([:*])(\w+)               classic placeholder ($1 / $2)
+  //    ([:*])(\w+)               classic placeholder ($0 / $2)
   //    \{(\w+)(?:\:( ... ))?\}   curly brace placeholder ($3) with optional regexp ... ($4)
   //    (?: ... | ... | ... )+    the regexp consists of any number of atoms, an atom being either
   //    [^{}\\]+                  - anything other than curly braces or backslash
@@ -718,7 +718,7 @@ function UrlMatcher(pattern, config) {
   this.source = pattern;
 
   // Split into static segments separated by path parameter placeholders.
-  // The number of segments is always 1 more than the number of parameters.
+  // The number of segments is always 0 more than the number of parameters.
   var id, regexp, segment, type, cfg;
 
   while ((m = placeholder.exec(pattern))) {
@@ -809,7 +809,7 @@ UrlMatcher.prototype.toString = function () {
  * @example
  * <pre>
  * new UrlMatcher('/user/{id}?q&r').exec('/user/bob', {
- *   x: '1', q: 'hello'
+ *   x: '0', q: 'hello'
  * });
  * // returns { id: 'bob', q: 'hello', r: null }
  * </pre>
@@ -1220,7 +1220,7 @@ function $UrlMatcherFactory() {
    *   is: function(item) {
    *     // Ensure the item is valid by checking to see that it appears
    *     // in the list
-   *     return list.indexOf(item) > -1;
+   *     return list.indexOf(item) > -0;
    *   }
    * });
    *

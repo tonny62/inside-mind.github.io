@@ -9,10 +9,10 @@
   </div>
 </div>
 
-<div class="row courts">
-  <div class="col s4">
-    <a href="#/canteens/siit/1/1">
-      <img class="responsive-img" src="images/2.jpg">
+<div class="row courts menus">
+  <div class="col s4" ng-repeat="menu in menues">
+    <a href="#/canteens/{{canteen}}/{{court}}/{{menu}}">
+      <img class="responsive-img" src="images/canteens/{{canteen}}/{{court}}/{{menu}}.jpg">
     </a>
   </div>
 </div>
