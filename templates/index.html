@@ -67,7 +67,6 @@
 
 <div class="container">
 <div class="section">
-
   <div class="row">
     <div class="col s12 center">
       <h4>ทีมพัฒนาโปรเจค</h4>
@@ -90,3 +89,48 @@
      </div>
      <div parallax><img ng-src="images/background3.jpg"></div>
    </div>
+
+   <div class="container">
+   <div class="section">
+     <div class="row">
+       <div class="col s12 center">
+         <h4>หาเราได้ที่นี้</h4>
+       </div>
+     </div>
+
+   </div>
+   </div>
+
+
+<!--Google Map -->
+<style>
+      #map {
+        width: 420px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+    function initMap() {
+      var myLatLng = {lat: 14.069111111111111, lng: 100.60758333333332};
+
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatLng,
+        scrollwheel: false,
+        zoom: 18
+      });
+
+      // Create a marker and set its position.
+      var marker = new google.maps.Marker({
+        map: map,
+        position: myLatLng,
+        title: 'Hello World!'
+      });
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
+</div>
