@@ -1,1 +1,0 @@
-# Healthy TU Project
