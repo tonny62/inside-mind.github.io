@@ -1,0 +1,18 @@
+    <div class="row valign-wrapper" style="margin-top:18px;">
+      <div class="col s3">
+        <img src="canteens/sc.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+      </div>
+      <div class="col s9">
+        <span class="black-text">
+          โรงอาหาร SC
+        </span>
+      </div>
+    </div>
+
+    <div class="row courts">
+      <div class="col s4" ng-repeat="court in courts">
+        <a ng-if="$index!=0" href="#/canteens/sc/{{$index}}">
+          <img class="responsive-img" ng-src="canteens/sc/{{$index}}.jpg">
+        </a>
+      </div>
+    </div>

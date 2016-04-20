@@ -1,0 +1,20 @@
+<div class="container" ng-controller="courtCtrl" style="margin-top:18px;">
+  <div class="row valign-wrapper" style="margin-top:18px;">
+    <div class="col s3">
+      <img src="canteens/{{canteen}}/{{court}}.jpg" alt="" class="circle responsive-img materialboxed"  materialboxed> <!-- notice the "circle" class -->
+    </div>
+    <div class="col s9">
+      <span class="black-text">
+        {{detail['name']}}
+      </span>
+    </div>
+  </div>
+
+  <div class="row menus">
+    <div class="col s4" ng-repeat="menu in detail['menus']">
+      <a href="#/canteens/{{canteen}}/{{court}}/{{$index+1}}">
+        <img class="responsive-img" ng-src="canteens/{{canteen}}/{{court}}/{{$index+1}}.jpg">
+      </a>
+    </div>
+  </div>
+</div>

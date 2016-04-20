@@ -1,0 +1,66 @@
+<style>
+  .map {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="container" ng-controller="canteensCtrl">
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img ng-src="canteens/jc.jpg">
+          <span class="card-title">โรงอาหาร JC</span>
+        </div>
+        <div class="card-action">
+          <a href="#/jc/all">ดูเมนูทั้งหมด</a>
+          <a href="#/canteens/jc">ร้านค้า</a>
+        </div>
+        <!--JC Map-->
+        <ul class="collapsible map" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><a href="https://www.google.com/maps?cid=9854053093386985750&hl=en&gl=us&shorturl=1"><i class="material-icons">place</i>แผนที่</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--SC Map-->
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img ng-src="canteens/sc.jpg">
+          <span class="card-title">โรงอาหาร SC</span>
+        </div>
+        <div class="card-action">
+          <a href="#/sc/all">ดูเมนูทั้งหมด</a>
+          <a href="#/canteens/sc">ร้านค้า</a>
+        </div>
+        <ul class="collapsible map" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><a href="https://www.google.com/maps?cid=532343779688383017&hl=en&gl=us&shorturl=1"><i class="material-icons">place</i>แผนที่</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--Engineer Map-->
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img ng-src="canteens/eng.jpg">
+          <span class="card-title">โรงอาหาร วิศวะ</span>
+        </div>
+        <div class="card-action">
+          <a href="#/eng/all">ดูเมนูทั้งหมด</a>
+          <a href="#/canteens/eng">ร้านค้า</a>
+        </div>
+        <ul class="collapsible map" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><a href="https://www.google.com/maps?q=14.069588,100.607234&hl=en&gl=us&shorturl=1"><i class="material-icons">place</i>แผนที่</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
