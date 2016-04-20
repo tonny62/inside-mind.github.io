@@ -1,5 +1,5 @@
 <style>
-  #map {
+  .map {
     width: 420px;
     height: 400px;
     margin: 0; padding: 0; width:100%; height: 400px;
@@ -23,7 +23,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">place</i>แผนที่</div>
             <div class="collapsible-body">
-              <div id="jc_map"></div>
+              <div id="jc_map" class="map"></div>
               <script>
                 function jcMap() {
                   var myLatLng = {lat: 14.0690984, lng: 100.6043646};
@@ -59,7 +59,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">place</i>แผนที่</div>
             <div class="collapsible-body">
-              <div id="sc_map"></div>
+              <div id="sc_map" class="map"></div>
               <script>
                 function scMap() {
                   var myLatLng = {lat: 14.0690984, lng: 100.6043646};
@@ -91,12 +91,11 @@
           <a href="#/eng/all">ดูเมนูทั้งหมด</a>
           <a href="#/canteens/eng">ร้านค้า</a>
         </div>
-        <!--Eng Map-->
         <ul class="collapsible" data-collapsible="expandable">
           <li>
             <div class="collapsible-header"><i class="material-icons">place</i>แผนที่</div>
             <div class="collapsible-body">
-              <div id="eng_map"></div>
+              <div id="eng_map" class="map"></div>
               <script>
                 function engMap() {
                   var myLatLng = {lat: 14.0688867, lng: 100.6064353};
