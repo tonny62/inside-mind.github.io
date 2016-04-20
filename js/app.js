@@ -9,6 +9,13 @@ var app = angular.module('siitApp', ['ngRoute','ui.router','ui.materialize'])
                   }
                 ).
                 when(
+                    "/:canteen/random",
+                    {
+                      templateUrl : "templates/random.html",
+                      controller  : "randomCtrl",
+                    }
+                ).
+                when(
                     "/:canteen/all",
                     {
                       templateUrl : "templates/all.html",
@@ -210,6 +217,18 @@ app.controller("indexCtrl",function($scope){
 });
 app.controller("canteensCtrl",function($scope){
 
+});
+app.controller("randomCtrl",function($scope,$routeParams, $route, Canteens,Courts){
+    var canteen =   $routeParams.canteen;
+    var court   =   Math.floor(Math.random()*Canteens[canteen].length+1);
+    var menu   =   Math.floor(Math.random()*Canteens[canteen][court]['menus'].length+1);
+    console.log(canteen);
+    console.log(court);
+    console.log(menu);
+    var route   =   new Array(canteen, court, menu);
+    $scope.court    =   Canteens[canteen][court]['name'];
+    $scope.route    =   route.join('/');
+    $scope.link     = "canteens/"+route.join("/")+".html";
 });
 app.controller("allCtrl",function ($scope,$routeParams, $route, Canteens,Courts) {
     var canteen = new Array();
