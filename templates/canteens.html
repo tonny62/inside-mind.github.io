@@ -1,0 +1,121 @@
+<style>
+  .map {
+    width: 420px;
+    height: 400px;
+    margin: 0; padding: 0; width:100%; height: 400px;
+  }
+</style>
+
+<div class="container" ng-controller="canteensCtrl">
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img ng-src="canteens/jc.jpg">
+          <span class="card-title">โรงอาหาร JC</span>
+        </div>
+        <div class="card-action">
+          <a href="#/jc/all">ดูเมนูทั้งหมด</a>
+          <a href="#/canteens/jc">ร้านค้า</a>
+        </div>
+        <!--JC Map-->
+        <ul class="collapsible" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>แผนที่</div>
+            <div class="collapsible-body">
+              <div id="jc_map" class="map"></div>
+              <script>
+                function jcMap() {
+                  var myLatLng = {lat: 14.0690984, lng: 100.6043646};
+                  var map = new google.maps.Map(document.getElementById('jc_map'), {
+                    zoom: 18,
+                    center: myLatLng
+                  });
+                  var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'JC Canteen'
+                  });
+                }
+              </script>
+              <script src="https://maps.googleapis.com/maps/api/js?callback=jcMap" async defer></script>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--SC Map-->
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img ng-src="canteens/sc.jpg">
+          <span class="card-title">โรงอาหาร SC</span>
+        </div>
+        <div class="card-action">
+          <a href="#/sc/all">ดูเมนูทั้งหมด</a>
+          <a href="#/canteens/sc">ร้านค้า</a>
+        </div>
+        <ul class="collapsible" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>แผนที่</div>
+            <div class="collapsible-body">
+              <div id="sc_map" class="map"></div>
+              <script>
+                function scMap() {
+                  var myLatLng = {lat: 14.0690984, lng: 100.6043646};
+                  var map = new google.maps.Map(document.getElementById('sc_map'), {
+                    zoom: 18,
+                    center: myLatLng
+                  });
+                  var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'SC Canteen'
+                  });
+                }
+              </script>
+              <script src="https://maps.googleapis.com/maps/api/js?callback=scMap" async defer></script>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--Engineer Map-->
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img ng-src="canteens/eng.jpg">
+          <span class="card-title">โรงอาหาร วิศวะ</span>
+        </div>
+        <div class="card-action">
+          <a href="#/eng/all">ดูเมนูทั้งหมด</a>
+          <a href="#/canteens/eng">ร้านค้า</a>
+        </div>
+        <ul class="collapsible" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>แผนที่</div>
+            <div class="collapsible-body">
+              <div id="eng_map" class="map"></div>
+              <script>
+                function engMap() {
+                  var myLatLng = {lat: 14.0688867, lng: 100.6064353};
+                  var map = new google.maps.Map(document.getElementById('eng_map'), {
+                    zoom: 18,
+                    center: myLatLng
+                  });
+                  var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Engineer Canteen'
+                  });
+                }
+              </script>
+              <script src="https://maps.googleapis.com/maps/api/js?callback=engMap" async defer></script>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
