@@ -1,1 +1,1 @@
-# inside-mind.github.io
+# inside-mind.github.io/%23/
